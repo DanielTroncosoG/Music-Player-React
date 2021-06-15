@@ -4,7 +4,7 @@ import Play from "./Play";
 //create your first component
 export function Reproductor() {
 	let audioPlayer = useRef();
-	const [actualSong, setactualSong] = useState(1);
+	const [actualSong, setactualSong] = useState(null);
 	const [listofSongs, setlistofSongs] = useState([
 		{
 			id: 1,
@@ -37,10 +37,17 @@ export function Reproductor() {
 		if (actualSong + 1 < listofSongs.length)
 			cargSong(listofSongs[actualSong + 1].url, actualSong + 1);
 	};
+	const prevSong = () => {
+		if (actualSong > 0)
+			cargSong(listofSongs[actualSong - 1].url, actualSong - 1);
+	};
+	const stopSong = () => {
+		cargSong(null);
+	};
 
 	return (
 		<>
-			<div className="container">
+			<div className="container bg-black justify-content-lg-center">
 				<div className="row">
 					<div className="col-md-6">
 						<ul className="SongList">
@@ -71,11 +78,14 @@ export function Reproductor() {
 					</div>
 				</div>
 				<div className="Reproductor">
-					<button type="button" id="Previous">
+					<button onClick={prevSong} type="button" id="Previous">
 						<i className="fas fa-step-backward"></i>
 					</button>
 					<button onClick={cargSong} type="button" id="Play">
 						<i className="fas fa-play"></i>
+					</button>
+					<button onClick={stopSong} type="button" id="Pause">
+						<i className="fas fa-stop-circle"></i>
 					</button>
 					<button onClick={sigSong} type="button" id="Next">
 						<i className="fas fa-step-forward"></i>
