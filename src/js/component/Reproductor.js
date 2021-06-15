@@ -67,17 +67,17 @@ export function Reproductor() {
 				</div>
 				<div className="row">
 					<div className="col-md-6">
-						<audio ref={t => (audioPlayer = t)} src="" controls />
+						<audio ref={t => (audioPlayer = t)} src="" />
 					</div>
 				</div>
 				<div className="Reproductor">
-					<button onClick="Play(this)" type="button" id="Previous">
+					<button type="button" id="Previous">
 						<i className="fas fa-step-backward"></i>
 					</button>
-					<button type="button" id="Play">
+					<button onClick={cargSong} type="button" id="Play">
 						<i className="fas fa-play"></i>
 					</button>
-					<button type="button" id="Next">
+					<button onClick={sigSong} type="button" id="Next">
 						<i className="fas fa-step-forward"></i>
 					</button>
 				</div>
