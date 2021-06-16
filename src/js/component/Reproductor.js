@@ -44,6 +44,9 @@ export function Reproductor() {
 	const stopSong = () => {
 		cargSong(null);
 	};
+	const pauseSong = () => {
+		audioPlayer.pause();
+	};
 
 	return (
 		<>
@@ -81,10 +84,13 @@ export function Reproductor() {
 					<button onClick={prevSong} type="button" id="Previous">
 						<i className="fas fa-step-backward"></i>
 					</button>
-					<button onClick={cargSong} type="button" id="Play">
+					<button onClick={reproSong} type="button" id="Play">
 						<i className="fas fa-play"></i>
 					</button>
-					<button onClick={stopSong} type="button" id="Pause">
+					<button onClick={pauseSong} type="button" id="Pause">
+						<i className="fas fa-pause-circle"></i>
+					</button>
+					<button onClick={stopSong} type="button" id="Stop">
 						<i className="fas fa-stop-circle"></i>
 					</button>
 					<button onClick={sigSong} type="button" id="Next">
